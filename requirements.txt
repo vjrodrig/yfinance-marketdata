@@ -1,0 +1,10 @@
+# Descargador de market data del S&P 500 (top 100) con yfinance.
+# Requiere Python >= 3.10 (curl_cffi no soporta 3.9). Entorno objetivo: 3.12.
+# Tras instalar, las versiones exactas resueltas quedan documentadas con `pip freeze`.
+
+yfinance[nospam]>=0.2.40   # API de mercado de Yahoo; [nospam] -> requests_cache + requests_ratelimiter
+pandas>=2.0                # manejo de datos + pandas.read_html
+lxml>=5.0                  # parser HTML para read_html (lista S&P 500 de Wikipedia)
+curl_cffi>=0.7             # sesion con impersonacion de navegador (menos bloqueos 429); Python >= 3.10
+tenacity>=8.0             # reintentos con backoff exponencial
+tqdm>=4.66               # barra de progreso
